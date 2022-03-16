@@ -34,6 +34,7 @@ class Campaign(models.Model):
     tag         = models.CharField(max_length = 100)
     description = models.CharField(max_length = 500)
     image       = models.URLField(max_length = 250)
+    contract    = models.BooleanField()
     budget      = models.IntegerField()
     created_at  = models.DateTimeField(null = True)
     updated_at  = models.DateTimeField(null = True)
