@@ -1,7 +1,5 @@
 from django.db import models
 
-import datetime
-
 class Company(models.Model):
     name       = models.CharField(max_length = 50)
     created_at = models.DateTimeField(null = True)
@@ -21,6 +19,8 @@ class Performance(models.Model):
 class Influencer(models.Model):
     name          = models.CharField(max_length = 50)
     full_name     = models.CharField(max_length = 15)
+    age           = models.IntegerField()
+    live          = models.CharField(max_length = 15)
     profile_image = models.URLField(max_length = 250)
     company       = models.ForeignKey(Company, on_delete = models.CASCADE)
     created_at    = models.DateTimeField(null = True)
@@ -46,7 +46,8 @@ class Campaign(models.Model):
 class InfluencerPost(models.Model):
     tag           = models.CharField(max_length = 100)
     url           = models.URLField(max_length = 250)
-    campaign      = models.ForeignKey(Campaign, on_delete = models.CASCADE)
+    created_at    = models.DateTimeField(null = True)
+    campaign      = models.ForeignKey(Campaign, null = True, on_delete = models.CASCADE)
     influencer    = models.ForeignKey(Influencer, on_delete = models.CASCADE)
 
     class Meta:
