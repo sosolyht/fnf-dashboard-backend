@@ -417,3 +417,8 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,pycharm,macos,linux,python,django
 
 my_settings.py
+db_uploader.py
+*.csv
+*.db_*.py
+*.sh
+/csv
